@@ -1,3 +1,9 @@
+//  홈 컨트롤러 - 로직분석
+//  로그인 쿠키(memberId)가 없는 사용자는 기존 home으로 보낸다.
+//  추가로 로그인 쿠키가 있어도 회원이 업승면 home으로 보낸다.
+//  로그인쿠키(memberId)가 있는 사용자는 로그인 사용자 전용 홈 화면인 loginHome으로 보낸다.
+//  추가로 홈 화면에 화원 관련 정보도 출력 해야해서 member 데이터도 모델에 담아서 전달한다.
+
 package hello.login.web;
 
 import hello.login.domain.member.Member;
