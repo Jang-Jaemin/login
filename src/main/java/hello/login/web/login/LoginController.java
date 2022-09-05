@@ -61,7 +61,7 @@ public class LoginController {
         //웹 브라우저는 종료 전까지 회원의 id를 서버에 계속 보내줄것이다.
     }
 
-//    @PostMapping("/login")
+//    @PostMapping("/login") 기존 주석처리
     public String loginV2(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
@@ -80,7 +80,9 @@ public class LoginController {
         sessionManager.createSession(loginMember, response);
 
         return "redirect:/";
-
+        //  private final SessionManager sessionManager; 주입
+        //  sessionManager.createSession(loginMember, response);
+        //  로그인성공시세션을등록한다. 세션에loginMember를저장해두고, 쿠키도함께발행한다.
     }
 
 //    @PostMapping("/login")
@@ -88,6 +90,23 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
+        //  세션생성과조회
+        //  세션을 생성하려면 request.getSession(true)를 사용하면 된다.
+        //  public HttpSession getSession(boolean create);
+
+        //  세션의 create 옵션.
+        //  request.getSession(true)
+        //  세션이 있으면 기존 세션을 반환한다.
+        //  세션이 없으면 새로운 세션을 생성해서 반환한다.
+        //  request.getSession(false)
+        //  세션이 있으면 기존 세션을 반환한다.
+        //  세션이 없으면 새로운 세션을 생성하지 않는다. null을반환한다.
+        //  request.getSession(): 신규세션을 생성하는 request.getSession(true)와 동일하다.
+
+        //  세션에 로그인 회원 정보 보관
+        //  session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
+        //  세션에데이터를 보관하는 방법은 request.setAttribute(..)와 비슷하다.
+        //  하나의 세션에 여러 값을 저장할 수 있다.
 
         Member loginMember = loginService.login(form.getLoginId(), form.getPassword());
 

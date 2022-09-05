@@ -64,6 +64,10 @@ public class HomeController {
 
         model.addAttribute("member", member);
         return "loginHome";
+        //  private final SessionManager sessionManager; 주입
+        //  기존homeLogin()의@GetMapping("/") 주석처리
+        //  세션관리자에서저장된회원정보를조회한다.
+        //  만약회원정보가없으면, 쿠키나세션이없는것이므로 로그인되지않은것으로처리한다.
     }
 
 //    @GetMapping("/")
