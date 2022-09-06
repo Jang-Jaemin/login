@@ -1,3 +1,8 @@
+//  세션정보와타임아웃설정
+
+//  세션정보확인
+//  세션이제공하는정보들을확인해보자.
+
 package hello.login.web.session;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +35,11 @@ public class SessionInfoController {
         log.info("isNew={}", session.isNew());
 
         return "세션 출력";
+        //  sessionId: 세션Id, JSESSIONID의값이다.
+        //  예) 34B14F008AA3527C9F8ED620EFD7A4E1 maxInactiveInterval: 세션의유효시간, 예) 1800초, (30분)
 
+        //  creationTime: 세션생성일시
+        //  lastAccessedTime : 세션과연결된사용자가최근에서버에접근한시간, 클라이언트에서서버로 sessionId( JSESSIONID)를요청한경우에갱신된다.
+        //  isNew: 새로생성된세션인지, 아니면이미과거에만들어졌고, 클라이언트에서서버로 sessionId( JSESSIONID)를요청해서조회된세션인지여부
     }
 }

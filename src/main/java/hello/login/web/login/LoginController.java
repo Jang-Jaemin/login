@@ -122,6 +122,12 @@ public class LoginController {
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
 
         return "redirect:/";
+        //  기존homeLoginV2()의@GetMapping("/") 주석처리
+
+        //  request.getSession(false): request.getSession()를 사용하면 기본 값이 create: true이므로,
+        //  로그인하지않을사용자도의미없는세션이만들어진다.
+        //  따라서 세션을 찾아서 사용하는 시점에는 create: false 옵션을 사용해서 세션을 생성하지 않아야한다.
+        //  session.getAttribute(SessionConst.LOGIN_MEMBER): 로그인 시점에 세션에 보관한 회원 객체를 찾는다.
 
     }
 

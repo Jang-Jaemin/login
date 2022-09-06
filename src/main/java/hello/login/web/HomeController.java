@@ -90,6 +90,15 @@ public class HomeController {
         return "loginHome";
     }
 
+    //  @SessionAttribute
+    //  스프링은 세션을 더 편리하게 사용할 수 있도록 @SessionAttribute을 지원한다.
+    //  이미 로그인된 사용자를 찾을때는 다음과 같이 사용하면 된다.
+    //  참고로 이 기능은 세션을 생성하지 않는다.
+    //  @SessionAttribute(name = "loginMember", required = false) Member loginMember
+
+    //  homeLoginV3()의 @GetMapping("/") 주석처리
+    //  세션을찾고, 세션에 들어있는 데이터를 찾는 번거로운 과정을 스프링이 한번에 편리하게 처리 해주는 것을 확인할 수 있다.
+
 //    @GetMapping("/")
     public String homeLoginV3Spring(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
