@@ -1,3 +1,9 @@
+//  Webconfig - 필터 설정
+//  필터를등록하는방법은여러가지가있지만, 스프링부트를사용한다면FilterRegistrationBean을 사용해서등록하면된다.
+//  setFilter(new LogFilter()): 등록할필터를지정한다.
+//  setOrder(1): 필터는체인으로동작한다. 따라서순서가필요하다.
+//  낮을수록먼저동작한다. addUrlPatterns("/*"): 필터를적용할 URL 패턴을지정한다. 한번에여러패턴을지정할수있다.
+
 package hello.login;
 
 import hello.login.web.argumentresolver.LoginMemberArgumentResolver;
