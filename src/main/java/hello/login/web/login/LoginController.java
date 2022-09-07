@@ -131,7 +131,9 @@ public class LoginController {
 
     }
 
-    //  로그인 성공시 세션 쿠키를 생성하는곳.
+    //  로그인에 성공하면 처음 요청한 URL로 이동하는 기능을 만드는 코드.
+    //  로그인 체크 필터에서, 미인증 사용자는 요청 경로를 포함해서/login에redirectURL요청 파라미터를 추가해서 요청했다.
+    //  이 값을 사용해서 로그인 성공시 해당 경로로 고객을 redirect한다.
     @PostMapping("/login")
     public String loginV4(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
                           @RequestParam(defaultValue = "/") String redirectURL,

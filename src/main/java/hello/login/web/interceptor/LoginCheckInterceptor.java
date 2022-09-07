@@ -1,3 +1,9 @@
+// 스프링 인터셉터 - 인증 체크
+// 서블릿 필터에서 사용했던 인증 체크 기능을 스프링 인터셉로 개발하는 단계이다.
+
+//  서블릿필터와비교해서코드가매우간결하다.
+//  인증이라는것은컨트롤러호출전에만호출되면된다. 따라서preHandle만구현하면된다.
+
 package hello.login.web.interceptor;
 
 import hello.login.web.SessionConst;

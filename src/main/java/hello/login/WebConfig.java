@@ -43,13 +43,13 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/", "/members/add", "/login", "/logout",
                         "/css/**", "/*.ico", "/error");
     }
-
+    //  WebConfig - loginCheckFilter() 추가
     @Bean
     public FilterRegistrationBean logFilter() {
         FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
-        filterRegistrationBean.setFilter(new LogFilter());
-        filterRegistrationBean.setOrder(1);
-        filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.setFilter(new LogFilter()); // setFilter(new LoginCheckFilter()) = 로그인필터를등록한다.
+        filterRegistrationBean.setOrder(1); //  setOrder(2): 순서를 2번으로잡았다 = 로그필터다음에로그인필터가적용된다.
+        filterRegistrationBean.addUrlPatterns("/*"); // addUrlPatterns("/*") = 모든요청에로그인필터를적용한다.
 
         return filterRegistrationBean;
     }
